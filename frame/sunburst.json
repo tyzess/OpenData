@@ -1,0 +1,571 @@
+{
+  "name": "Schuldaten",
+  "children": [
+    {
+      "name": "Verwaltungskreis Biel/Bienne",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "10"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "99"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "71"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1710"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "2607"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "5237"
+                }
+
+          ]
+        },
+        {
+          "name": "Subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "18"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "54"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "79"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Obersimmental-Saanen",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "7"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "50"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "24"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "235"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "457"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "811"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Bern-Mittelland",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "6"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "231"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "208"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "6652"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "9842"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "19621"
+                }
+
+          ]
+        },
+        {
+          "name": "Subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "143"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "871"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "646"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Emmental",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "5"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "28"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "34"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1763"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "3074"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "5645"
+                }
+
+          ]
+        },
+        {
+          "name": "Subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "24"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "22"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "44"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Thun",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "45"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1643"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "3054"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "5569"
+                }
+
+          ]
+        },
+        {
+          "name": "Subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "20"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "69"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "68"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Interlaken-Oberhasli",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "143"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "29"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "660"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "1350"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "2479"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Frutigen-Niedersimmental",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "41"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "3"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "702"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "1331"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "2166"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Seeland",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "44"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "15"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1202"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "2178"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "4167"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verwaltungskreis Oberaargau",
+      "children": [
+        {
+          "name": "Nicht subventionierte Schule",
+          "children": [
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "6"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "2"
+                }
+
+          ]
+        },
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1358"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "2518"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "4403"
+                }
+
+          ]
+        },
+        {
+          "name": "Subventionierte Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "21"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "48"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "81"
+                }
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arrondissement administratif Jura bernois",
+      "children": [
+        {
+          "name": "Öffentliche Schule",
+          "children": [
+            {
+              "name": "Vorschulstufe",
+
+                  "size": "1106"
+                }
+,
+            {
+              "name": "Sekundarstufe I",
+
+                  "size": "1701"
+                }
+,
+            {
+              "name": "Primarstufe",
+
+                  "size": "3364"
+                }
+
+          ]
+        }
+      ]
+    }
+  ]
+}

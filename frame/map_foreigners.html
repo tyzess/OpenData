@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+    <head>
+		<meta charset="utf-8">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/jquery.tipsy.js"></script>
+		<script src="http://d3js.org/queue.v1.min.js"></script>
+		<script src="http://d3js.org/topojson.v1.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="../js/colorbrewer.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/colorbrewer.css" />
+		<link rel="stylesheet" type="text/css" href="../css/map_d3.css" />
+		<link rel="stylesheet" type="text/css" href="../css/tipsy.css" />
+	</head>
+    <body>
+		<script>
+			var width = 700;
+			var height = 700;
+			
+			var colorSteps = 9;
+			
+			var path = d3.geo.path()
+				.projection(matrix(1.3, 0, 0, 1.3, -(width * .4), 0));
+			
+			var svg = d3.select("body").append("svg")
+				.attr("width", width)
+				.attr("height", height);
+				
+			var valueById = d3.map();
+				
+			/* SCALE AND COLOR */
+			var color_domain = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4];
+			var ext_color_domain = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4];
+			var legend_labels = ["0%", "<5%", "<10%", "<15%", "<20%", "<25%", "<30%", "<35%", ">35%"];           
+			var scale = d3.scale.threshold()
+				.domain(color_domain)
+				.range([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+
+			/* LOAD DATA */
+			queue()
+				.defer(d3.json, "be-municipalities.json")
+				.defer(d3.tsv, "school.tsv", function(d) { valueById.set(d.id, d.foreigners); })
+				.await(ready);
+				
+			function ready(error, be) {
+				/* MUNICIPALITIES */
+				svg.append("g")
+					.attr("class", "Reds")
+					.selectAll("path")
+					.data(topojson.feature(be, be.objects.municipalities).features)
+					.enter()
+					.append("path")
+					.attr("class", function(d) { 
+						var value = valueById.get(d.id); 
+						var bucket = Math.round(scale(value));
+						if (isNaN(bucket)) {
+							return "q0-" + colorSteps;
+						}
+						return "q" + bucket + "-" + colorSteps;
+						})
+					.attr("d", path);
+					
+				/* BORDERS */
+				svg.append("path")
+					.datum(topojson.mesh(be, be.objects.municipalities, function(a, b) { return a !== b; }))
+					.attr("class", "municipalities_border")
+					.attr("d", path);
+					
+				/* TOOLTIP */
+				$('svg g path').tipsy({ 
+					gravity: 'w', 
+					html: true, 
+					title: function() {
+						var d = this.__data__;
+						var value = valueById.get(d.id);
+						if(isNaN(value)) { 
+							return d.properties.name + '</br>0% Ausländeranteil'; 
+						} else {
+							return d.properties.name + '</br>' + Math.round((value)*10000)/100 + '% Ausländeranteil'; 
+						}
+					}
+				});
+				
+				/* LEGEND */
+				var textTicks = colorSteps;
+				var legendWidth = width / textTicks;
+				var legendHeight = 25;
+				
+				var legend = svg.selectAll(".legend")
+					.data(ext_color_domain, function(d) { return d; })
+					.enter()
+					.append("g")
+					.attr("class", "legend");
+
+				legend.append("rect")
+					.attr("x", function(d, i) { return legendWidth * i; })
+					.attr("y", height - (legendHeight * 2))
+					.attr("width", legendWidth)
+					.attr("height", legendHeight / 2)
+					.style("fill", function(d, i) { return colorbrewer.Reds[colorSteps][i]; });
+
+				legend.append("text")
+					.attr("class", "mono")
+					.text(function(d,i) { return legend_labels[i]; })
+					.attr("x", function(d, i) { return legendWidth * i; })
+					.attr("y", height - (legendHeight * 2) + (30) );
+			}
+			
+			function matrix(a, b, c, d, tx, ty) {
+				return d3.geo.transform({
+					point: function(x, y) { this.stream.point(a * x + b * y + tx, c * x + d * y + ty); }
+				});
+			}
+		</script>
+	</body>
+</html>

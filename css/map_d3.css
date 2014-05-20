@@ -1,0 +1,39 @@
+/* for d3 svg stuff */
+
+.municipalities_border {
+	fill: none;
+	stroke: #cfcfcf;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-width: 1px;
+}
+
+path.q0-9:hover, path.q1-9:hover, path.q2-9:hover,
+path.q3-9:hover, path.q4-9:hover, path.q5-9:hover,
+path.q6-9:hover, path.q7-9:hover, path.q8-9:hover {
+	stroke: #cfcfcf;
+	stroke-width: 5px;
+}
+
+.no_data {
+	fill: #E4E4E4;
+}
+
+rect.bordered {
+	stroke: #E6E6E6;
+	stroke-width:2px;   
+}
+
+text.mono {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+	fill: #aaa;
+}
+
+text.axis-workweek {
+	fill: #000;
+}
+
+text.axis-worktime {
+	fill: #000;
+}

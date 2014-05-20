@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+		<meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<title>Volksschuldaten des Kanton Bern</title>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="http://d3js.org/queue.v1.min.js"></script>
+		<script src="http://d3js.org/topojson.v1.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="js/colorbrewer.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/colorbrewer.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+		<!-- Begin Navbar -->
+		<div class="navbar navbar-static">
+			<div class="container">
+				<a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</a>
+				<div class="nav-collapse collase">
+					<ul class="nav navbar-nav">  
+						<li><a href="index.html">Home</a></li> 
+					</ul>
+				</div>		
+			</div>
+		</div>
+		<!-- /.navbar -->
+
+		<header class="masthead">
+			<div class="container">
+				<div class="row">
+					<div class="col col-sm-6">
+						<h1><a href="#">Volksschuldaten des Kanton Bern</a>
+						<p class="lead">Eine Visualisierung von <a href="#">Urs Zysset</a> und <a href="#">Rene Gadow</a>.</p></h1>
+					</div>
+					<div class="col col-sm-6">
+						<div class="well pull-right">
+							<img src="img/logo.gif" style="height: 100px;">        
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Begin Body -->
+		<div class="container">
+			<div class="row">
+				<div class="col col-sm-3">
+					<div id="sidebar">
+						<ul class="nav nav-stacked">
+							<li><h3 class="highlight">Kategorien <i class="glyphicon glyphicon-stats pull-right"></i></h3></li>
+							<li><a href="#allgemein">Allgemein</a></li>
+							<li><a href="#schueler">Schüler</a></li>
+							<ul>
+								<li><a href="#anzahl">Anzahl</a></li>
+								<li><a href="#geschlecht">Geschlecht</a></li>
+								<li><a href="#auslaender">Ausländer</a></li>
+								<li><a href="#sprachen">Sprachen</a></li>
+							</ul>
+							<li><a href="#dokumentation">Dokumentation</a></li>
+							<ul>
+								<li><a href="#vorgehen">Vorgehen</a></li>
+								<li><a href="#daten">Daten</a></li>
+							</ul>
+						</ul>
+				   </div>
+				</div>  
+				<div class="col col-sm-9">
+					<div class="panel">
+						<h1 id="allgemein">Allgemein</h1>
+						<div class="row">
+							<div class="col col-sm-12">
+								<img src="img/opendata.png" class="img-responsive pull-right" style="width: 60%; padding: 0px 20px;">
+								<p>Im Auftrag der Vorlesung <a href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html" target="_blank">Open Data</a> der <a href="http://www.unibe.ch/" target="_blank">Universität Bern</a> wurde mithilfe des Javascript Framework <a href="http://d3js.org/" target="_blank">D3.js</a> die Volksschuldaten des Kanton Bern in dieser interaktiven App visualisiert.</p>
+							</div>  
+						</div>
+						
+						<hr>
+						
+						<h1 id="schueler">Schüler</h1>
+						
+						<hr>
+						<h2 id="anzahl">Nach Anzahl</h2>	
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Gesamtanzahl Schüler nach Gemeinden<small> Karte</small></h4>
+						<p>Auf dieser interaktiven Karte des Kanton Bern sind die einzelnen Gemeinden nach Anzahl der Schüler gefärbt. 
+						Je dunkler eine Gemeinde eingefärbt ist, desto mehr Schüler gehen in dieser Gemeinde zur Schule. 
+						Es ist klar festzustellen, dass die Gemeinden Bern, Biel, Thun und Langenthal besonders grosse Zentren bilden. Auch die Gemeinden die direkt an diesen Zentren grenzen, weisen meist noch über 1000 Schüler aus. 
+						Im Durchschnitt hat eine Gemeinde ca. 300 Schüler, dies zeigt gut auf, dass neben den grossen Schulzentren die meisten Gemeinden doch eher nur unter 1000 Schüler beherbergen.</p>
+						<iframe id="101" src="frame/map_students.html" marginwidth="0" marginheight="0" height="700px" scrolling="no"></iframe>
+						<hr>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Schülerzahl nach Verwaltungskreisen, Trägern und Schulstufen<small> Sunburst</small></h4>
+						<p>Dieses Sunburst-Diagramm zeigt zunächst die Aufteilung der Schüler auf die verschiedenen Verwaltungskreise auf. 
+						Eine Ebene weiter unten werden die Verwaltungskreise anschliessend auf die einzelnen Trägertypen (Öffentlichen Schulen, subventionierten und nicht subventionierten Schulen) aufgeteilt. 
+						Wobei diese in der darauf folgenden Ebene erneut noch auf die verschiedenen Schulstufen (Vorschulstufe, Primarstufe und Sekundarstufe) unterteilt werden.</p>
+						
+						<p>Durch einen Klick auf ein beliebiges Stück dieses Sunburst-Diagramm ist es möglich in diesen Bereich 'hinein zu zoomen' und diesen genauer zu betrachten. 
+						Möchte man wieder eine Ebene nach oben gelangen, so reicht ein einfacher Klick in das Zentrum des Sunburst-Diagramm. 
+						Informationen über die jeweiligen Bereiche lassen sich durch den angezeigten Tooltip zu jeder Zeit direkt ablesen.</p>
+						<iframe id="102" src="frame/sunburst_students.html" marginwidth="0" marginheight="0" height="700px" scrolling="no"></iframe>
+						<hr>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Anzahl Schüler nach Gemeinden und Verwaltungskreisen<small> Bubble Cluster</small></h4>
+						<p>In diesem eher verspielten Diagramm sieht man die Anzahl Schüler in jeder Gemeinde zunächst anhand der Grösse der Kreise. 
+						Diese sind gefärbt, je nach Verwaltungskreis. 
+						Hier kann man sehr gut sehen, welches die grössten Gemeinden (bezüglich der Schülerzahl) in einem jeweiligen Verwaltungskreis sind. 
+						Die Kreise haben Kollisionserkennung und können nach belieben durcheinander geworfen werden. 
+						Zum ausprobieren ziehen sie einen der Kreise herum. 
+						Das Diagramm ordnet sich automatisch sobald man es wieder los lässt.</p>
+						<iframe id="103" src="frame/cluster_students.html" marginwidth="0" marginheight="0" height="600px" scrolling="no"></iframe>
+						<hr>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Anzahl Schüler Verwaltungskreisen<small> Spider</small></h4>
+						<p>Dieses Diagramm zeigt einmal mehr die Möglichkeiten, die D3.js bietet. 
+						Je nach Verwaltungskreis sieht man hier die Anzahl Schüler, wobei der Verwaltungskreis mit der höchsten Anzahl (hier Bern-Mittelland) als Basis dient, um dieses die anderen Datenpunkte im Diagramm anzuordnen.</p>
+						<iframe id="104" src="frame/spider_students.html" marginwidth="0" marginheight="0" height="550px" scrolling="no"></iframe>
+						<hr>
+						
+						<h1><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a></h1>
+						<hr>
+						
+						
+						
+						<h2 id="geschlecht">Nach Geschlecht</h2>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Geschlechter nach Gemeinden<small> Karte</small></h4>
+						<p>Auf dieser Karte wird die Aufteilung nach dem Geschlecht der Schüler dargestellt. 
+						Jede Gemeinden zeigt durch ihre Farbe welches Geschlecht der Schüler stärker vertreten ist. 
+						Grau bedeutet eine ausgeglichene Geschlechterverteilung, während rosa für einen höheren Frauenanteil steht und grün für einen höheren Männeranteil. 
+						Bei genauer Betrachtung fällt auf, dass die extremen Ausreisser in der Geschlechtsverteilung alle dadurch entstehen, dass in den jeweiligen Gemeinden meist nur sehr wenige Schüler vorhanden sind. 
+						Dennoch lässt sich aus der Karte herauslesen, dass das männliche Geschlecht in mehr Gemeinden die überhand hat.</p>
+						<iframe id="201" src="frame/map_genders.html" marginwidth="0" marginheight="0" height="700px" scrolling="no"></iframe>
+						<hr>
+						
+						<h1><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a></h1>
+						<hr>
+						
+						
+						
+						<h2 id="auslaender">Nach Ausländern</h2>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Ausländer nach Gemeinden<small> Karte</small></h4>
+						<p>Mithilfe dieser Karte lässt sich der Ausländeranteil unter den Berner Schülern herauslesen. 
+						Diesmal sind die Gemeinden nach prozentualem Anteil der Ausländer unter den Schülern rot gefärbt. 
+						Die Karte zeigt einen eher schwächeren Ausländeranteil in ländlicheren Gemeinden, wobei grössere Städte wie Bern eine höhere Konzentration ausländischer Schüler aufweisen.</p>
+						<iframe id="301" src="frame/map_foreigners.html" marginwidth="0" marginheight="0" height="700px" scrolling="no"></iframe>
+						<hr>
+						
+						<h1><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a></h1>
+						<hr>
+						
+						
+						
+						<h2 id="sprachen">Nach Sprachen</h2>
+						
+						<h4><i class="glyphicon glyphicon-stats"></i> Sprachen nach Gemeinden<small> Karte</small></h4>
+						<p>Auf dieser Karte sind die Gemeinden nach dem prozentualen Anteil fremdsprachiger Schüler gefärbt. 
+						Auch hier sieht man das die Anzahl fremdsprachiger Schüler in Städten wie Biel, Thun und Bern am höchsten ist, während ländliche Gemeinden generell einen kleineren Anteil aufweisen.</p>
+						<iframe id="401" src="frame/map_languages.html" marginwidth="0" marginheight="0" height="700px" scrolling="no"></iframe>
+						<hr>
+						
+						<h1><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a></h1>	
+						<hr>
+						
+						
+						
+						<h1 id="dokumentation">Dokumentation</h1>
+						<hr>
+						<h2 id="vorgehen">Vorgehen</h2>
+						
+						<h3>Sunburst</h3>
+						<p>Basiert auf <a href="http://bl.ocks.org/mbostock/4063423" target="_blank">Sunburst Partition</a></p>
+						<p>Zunächst wurden die Daten bereinigt und in Form gebracht, man in der Datei datasunburst.xlsx sehen kann. 
+						Diese wurde dann als datasunburst2.csv abgespeichert. 
+						Diese Datei haben wir dann in ein kleines Skript eingebunden, welches uns daraus die gewünschten Json Dateien lieferte. 
+						Die Daten, mit denen ein solches Diagramm arbeitet, haben eine verschachtelte Struktur die sich mit d3.nest() herstellen lässt.</p>
+
+						<pre>
+d3.csv("./datasunburst2.csv", function(csv_data){
+		
+	var json1 = d3.nest()
+		.key(function(d) { return d.Verwaltungskreis; })
+		.key(function(d) { return d.Träger; })
+		.key(function(d) { return d.Bildungsstufe; })
+		.rollup(function(leaves) { 
+			return {"name": "Schueler",
+				"size": d3.sum(leaves, function(d) {return parseFloat(d.Schueler);})}
+		})
+	   .entries(csv_data);
+
+	function ready(error, be) {
+		$("#Textfeld").html(JSON.stringify(be, null, 3));
+	}
+});
+						</pre>
+
+						<p>Dieses Snippet fasst alle Objekte zusammen, die den gleichen Key besitzen. 
+						Diese Kinder eines Keys haben dann wieder Kinder usw. 
+						Am Ende werden noch alle Kinder mit Name Schüler unter dem Key Bildungsstufe vereinigt und das Ergebnis in einem Textfeld ausgegeben. </p>
+						<p>Per Hand haben wir die Daten dann noch so umgeschrieben bzw Teile ersetzt, dass sie genau die von <a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">Herrn Bostock</a> vorgeschlagene Format haben. 
+						Siehe <a href="https://gist.github.com/mbostock/1093025" target="_blank">Flare.json</a></p>
+
+						<h3>Map</h3>
+						<p>Basiert auf </p>
+						<ul>
+							<li><a href="http://bl.ocks.org/mbostock/5925375" target="_blank">Projected Choropleth</a></li>
+							<li><a href="http://bl.ocks.org/KoGor/5685876" target="_blank">Russia choropleth example</a></li>
+						</ul>
+						<p>Aus den verschiedenen Vorlagen wurde nach und nach eine eigene Version extrahiert und zusammengesetzt. 
+						Da es Probleme bereitete das Gemeinde TopoJSON und das eigens erstellte csv File (mit z.B. den Schülermengen) zu aggregieren, 
+						wurde die Library <a href="https://github.com/mbostock/queue" target="_blank">queue.js</a> zu Hilfe gezogen. 
+						Damit war es nun endlich möglich, im JavaScript Code die beiden Files miteinander zu verbinden (musste von csv auf tsv ausweichen). 
+						Die Legende wurde danach später von Hand selbst entwickelt und hinzugefügt. Für die Tooltips wurde die externe Library <a href="http://onehackoranother.com/projects/jquery/tipsy/" target="_blank">Tipsy.js</a> verwendet. 
+						Um eine angenehme Farbpalette präsentieren zu können wurde ausserdem die Library <a href="http://colorbrewer2.org/" target="_blank">Colorbrewer</a> genutzt.</p>
+
+						<h3>Spider</h3>
+						<p>Basiert auf:</p>
+						<ul>
+							<li><a href="http://bl.ocks.org/nbremer/6506614" target="_blank">Spider Chart</a></li>
+							<li><a href="http://graves.cl/radar-chart-d3/" target="_blank">radar-chart-d3</a></li>
+						</ul>
+						<p>Damit das Spider App verwendet werden konnte, mussten die Daten - statt wie sonst mit einem csv - direkt im Skript festprogrammiert werden. 
+						Einige weitere kleine Veränderungen im Code wurden vorgenommen für eine optimale Visualisation.</p>
+						
+						
+						<h3>Bubble Cluster</h3>
+						<p>Basiert auf <a href="http://bl.ocks.org/mbostock/7882658" target="_blank">Cluster Force Layout IV</a></p>
+						<p>Das Musterbeispiel konnte grösstenteils übernommen werden. Die meiste Arbeit musste dafür aufgewendet werden, 
+						die Daten in einem ersten Schritt aufzuarbeiten und dann in einem zweiten Schritt die problemlose Verarbeitung durch das Muster-App zu ermöglichen. 
+						Dazu mussten die Daten fein säuberlich auf das bestehende Datenmodell des Muster-App abgestimmt werden. 
+						Neu wurde noch <a href="http://onehackoranother.com/projects/jquery/tipsy/" target="_blank">Tipsy.js</a> integriert, damit ist es möglich herauszufinden wofür welcher Kreis steht und welchen Wert er visualisiert.</p>
+						
+						<hr>
+						
+						<h2 id="daten">Daten</h2>
+						<p>Als Grunddatenquelle diente uns die Datei <code>schulstat_2012_20131108.csv</code>.</p>
+						In der Statistik finden Sie Angaben zu den Schülerinnen und Schülern nach Schule und Gemeinde. 
+						Aufgeführt werden pro Schule/Gemeinde die Anzahl Lernende nach Schulart, Geschlecht, Herkunft, Muttersprache sowie weiterer Merkmale. 
+						Stichtag der Daten ist der 15. September 2012. </p>
+						<table class="table table-striped">
+							<tr>
+								<th>Beschreibung</th>
+								<th>Struktur</th>
+								<th>Dateityp</th>
+								<th>Download</th>
+							</tr>
+							<tr>
+								<td>Grunddaten des Kanton Bern</td>
+								<td>-</td>
+								<td>csv</td>
+								<td>
+									<a href="data/schulstat_2012_20131108.csv" target="_blank">schulstat_2012_20131108.csv</a><br/>
+									<a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html" target="_blank">Quelle</a>
+								</td>
+							</tr>
+							<tr>
+								<td>Anzahl Schüler nach Gemeinden aufgeteilt</td>
+								<td rowspan="4">
+									<small><strong>id</strong>: Gemeindenummer<br/>
+									<strong>students</strong>: Anzahl Schüler<br/>
+									<strong>womens</strong>: Frauenanteil<br/>
+									<strong>foreigners</strong>: Ausländeranteil<br/>
+									<strong>languages</strong>: Fremdspr.anteil</small>
+								</td>
+								<td rowspan="4">tsv</td>
+								<td rowspan="4"><a href="data/school.tsv" target="_blank">school.tsv</a></td>
+							</tr>
+							<tr>
+								<td>Frauenanteil nach Gemeinden aufgeteilt</td>
+							</tr>
+							<tr>
+								<td>Ausländeranteil nach Gemeinden aufgeteilt</td>
+							</tr>
+							<tr>
+								<td>Fremdsprachigenanteil nach Gemeinden aufgeteilt</td>
+							</tr>
+							<tr>
+								<td>Gemeinden des Kanton Bern</td>
+								<td>TopoJSON</td>
+								<td>.json</td>
+								<td><a href="data/be-municipalities.json" target="_blank">be-municipalities.json</a></td>
+							</tr>
+							<tr>
+								<td>Verwaltungskreise, Träger, Schulstufen, Schülerzahl</td>
+								<td>-</td>
+								<td>.xlsx</td>
+								<td><a href="data/datasunburst.xlsx" target="_blank">datasunburst.xlsx</a></td>
+							</tr>
+							<tr>
+								<td>Verwaltungskreise, Träger, Schulstufen, Schülerzahl</td>
+								<td>komma-separiert</td>
+								<td>.csv</td>
+								<td><a href="data/datasunburst2.csv" target="_blank">datasunburst2.csv</a></td>
+							</tr>	
+							<tr>
+								<td>Verwaltungskreise, Träger, Schulstufen, Schülerzahl</td>
+								<td>flare.json</td>
+								<td>.json</td>
+								<td><a href="data/sunburst.json" target="_blank">sunburst.json</a></td>
+							</tr> 
+						</table>
+						
+						<hr>
+						<h1><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a></h1>	
+						<hr>
+					</div>
+				</div> 
+			</div>
+		</div>
+        <script type='text/javascript'>
+			$(document).ready(function() {
+				$('#sidebar').affix({
+					offset: {
+						top: 240
+					}
+				});	
+			});
+        </script>
+    </body>
+</html>
