@@ -41,6 +41,7 @@
 						cluster: i,
 						radius: r,
 						name: d.gemeinde,
+						kreis: d.verwaltungskreis,
 						students: d.students,
 					};
 					if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
@@ -84,7 +85,7 @@
 					html: true, 
 					title: function() {
 						var d = this.__data__;
-						return d.name + '</br>' + d.students + ' Schüler'; 
+						return d.kreis + '</br>' + d.name + '</br>' + d.students + ' Schüler'; 
 					}
 				});
 
