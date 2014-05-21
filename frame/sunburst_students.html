@@ -9,7 +9,10 @@ path {
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.tipsy.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/tipsy.css" />
 <script>
 
 var width = 600,
@@ -39,13 +42,6 @@ var arc = d3.svg.arc()
     .innerRadius(function(d) { return Math.max(0, y(d.y)); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-  var tooltip = d3.select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("opacity", 0);
-
   function format_number(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -67,32 +63,24 @@ var arc = d3.svg.arc()
      return  '<b>' + name + '</b><br> ( Anzahl Schueler: ' + size +')';
   }
 
-
-
 d3.json("sunburst.json", function(error, root) {
   var path = svg.selectAll("path")
       .data(partition.nodes(root))
     .enter().append("path")
       .attr("d", arc)
       .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-      .on("click", click)
-       .on("mouseover", function(d) {
-          tooltip.html(function() {
-              var name = format_name(d);
-              return name;
-         });
-          return tooltip.transition()
-            .duration(50)
-            .style("opacity", 0.9);
-        })
-        .on("mousemove", function(d) {
-          return tooltip
-            .style("top", (d3.event.pageY-10)+"px")
-            .style("left", (d3.event.pageX+10)+"px");
-        })
-        .on("mouseout", function(){return tooltip.style("opacity", 0);});
+      .on("click", click);
 
-
+	/* TOOLTIP */
+	$('svg g path').tipsy({ 
+		gravity: 'w', 
+		html: true, 
+		title: function() {
+			var d = this.__data__;
+			var name = format_name(d);
+			return name; 
+		}
+	});
 
   function click(d) {
     path.transition()
